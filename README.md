@@ -82,7 +82,7 @@ project_root/
 ├── manage.py                # Django project manager
 └── README.md                # This file
 
-
+```
 # Task Management Application
 
 ## Features Overview
