@@ -136,6 +136,7 @@ body {
     background-color: #007bff;
     color: #ffffff;
 }
+```
 
 # Task Management Application
 
