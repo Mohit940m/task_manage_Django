@@ -105,7 +105,7 @@ The main page displays tasks in three columns:
 - **Login**: Log into the app to access and manage your tasks.
 - **Logout**: Securely log out from the application.
 
-### Custom CSS and JS
+### Custom CSS
 This project includes custom hover effects and glow effects on task cards and navigation buttons.
 
 #### Custom Hover and Glow Effects
@@ -160,7 +160,7 @@ The main page displays tasks in three columns:
 - **Login**: Log into the app to access and manage your tasks.
 - **Logout**: Securely log out from the application.
 
-### Custom CSS and JS
+### Custom CSS
 This project includes custom hover effects and glow effects on task cards and navigation buttons.
 
 #### Custom Hover and Glow Effects
