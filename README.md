@@ -82,3 +82,101 @@ project_root/
 ├── manage.py                # Django project manager
 └── README.md                # This file
 
+
+# Task Management Application
+
+## Features Overview
+
+### Task List
+The main page displays tasks in three columns:
+- **To Do**: Tasks that need to be completed.
+- **In Process**: Tasks currently in progress.
+- **Done**: Completed tasks.
+
+### Task Actions
+- **Create Task**: Create a new task using a form.
+- **Edit Task**: Edit existing tasks.
+- **Delete Task**: Delete a task.
+- **Change Status**: Move tasks between To Do, In Process, and Done.
+- **Photo Upload**: Add an image/photo to a task.
+
+### Authentication
+- **Register**: Create a new account.
+- **Login**: Log into the app to access and manage your tasks.
+- **Logout**: Securely log out from the application.
+
+### Custom CSS and JS
+This project includes custom hover effects and glow effects on task cards and navigation buttons.
+
+#### Custom Hover and Glow Effects
+- **Task Cards**: Task cards will have a glowing effect when hovered over, making them stand out.
+- **Navbar Buttons**: Navigation buttons (Home, Login, Logout) will change color when hovered over.
+
+### Dark Theme
+The app uses a dark theme across all pages for a modern and sleek look.
+
+### Custom Styles
+All custom styles are placed in the static/css/styles.css file.
+
+```css
+/* styles.css */
+
+body {
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+/* Card hover effect */
+.card:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+/* Navbar hover effect */
+.navbar .btn:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+# Task Management Application
+
+## Features Overview
+
+### Task List
+The main page displays tasks in three columns:
+- **To Do**: Tasks that need to be completed.
+- **In Process**: Tasks currently in progress.
+- **Done**: Completed tasks.
+
+### Task Actions
+- **Create Task**: Create a new task using a form.
+- **Edit Task**: Edit existing tasks.
+- **Delete Task**: Delete a task.
+- **Change Status**: Move tasks between To Do, In Process, and Done.
+- **Photo Upload**: Add an image/photo to a task.
+
+### Authentication
+- **Register**: Create a new account.
+- **Login**: Log into the app to access and manage your tasks.
+- **Logout**: Securely log out from the application.
+
+### Custom CSS and JS
+This project includes custom hover effects and glow effects on task cards and navigation buttons.
+
+#### Custom Hover and Glow Effects
+- **Task Cards**: Task cards will have a glowing effect when hovered over, making them stand out.
+- **Navbar Buttons**: Navigation buttons (Home, Login, Logout) will change color when hovered over.
+
+## Future Enhancements
+- Add real-time updates for task changes using WebSockets.
+- Implement user roles (e.g., Admin, User) with different permissions.
+- Add task deadlines and reminders.
+- Integrate drag-and-drop functionality for easier task management.
+- Add notifications for task updates.
+
+## License
+This project is open-source and free to use. Feel free to modify and improve the code for your own use!
+
+---
+End of Document
+
+
