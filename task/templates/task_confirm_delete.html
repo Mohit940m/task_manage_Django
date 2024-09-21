@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Task
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Set dark gray background for the whole content */
+    body {
+        background-color: #2e2e2e;
+    }
+
+    /* Center the content and style the form */
+    .confirm-container {
+        background-color: #3a3a3a;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    /* Style the headers */
+    h1 {
+        color: white; /* Set header text to white */
+    }
+
+    /* Style the buttons */
+    .btn-danger:hover {
+        background-color: #ff4c4c;
+        border-color: #ff4c4c;
+    }
+
+    .btn-success:hover {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn {
+        margin: 10px;
+    }
+
+    /* Style the link */
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #ffcc00;
+    }
+</style>
+
+<div class="confirm-container">
+    <h1 class="text-center mt-4">
+        Are you sure that you want to delete the task?
+    </h1>
+
+    <!-- Delete form -->
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger">Delete</button>
+        <a href="{% url 'task_list'%}" class="btn btn-success">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}

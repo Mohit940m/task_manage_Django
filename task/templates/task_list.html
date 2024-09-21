@@ -1,0 +1,150 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+Task Manager
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-4">
+    Task Manager by Mohit  
+</h1>
+
+<a href="{% url 'task_create' %}" class="btn btn-primary mb-4">Create Task</a>
+
+<div class="container">
+    <div class="row">
+        <!-- To Do Column -->
+        <div class="col-md-4">
+            <h3 class="text-center text-light">To Do</h3>
+            {% for task in tasks %}
+                {% if task.status == 'TODO' %}
+                    <div class="card mb-4 task-card">
+                        {% if task.photo %}
+                            <img src="{{ task.photo.url }}" class="card-img-top" alt="Task Image">
+                        {% else %}
+                            <img src="{% static 'images/default-image.jpg' %}" class="card-img-top" alt="Default Image">
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-text text-light">{{ task.text }}</p>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ task.user.username }}</h6>
+
+                            {% if task.user == user %}
+                                <a href="{% url 'task_edit' task.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'task_delete' task.id %}" class="btn btn-danger">Delete</a>
+
+                                <!-- Status Change Buttons -->
+                                <div class="mt-2">
+                                    <form action="{% url 'task_change_status' task.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="status" value="INP">
+                                        <button type="submit" class="btn btn-warning btn-sm">Move to In Process</button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- In Process Column -->
+        <div class="col-md-4">
+            <h3 class="text-center text-light">In Process</h3>
+            {% for task in tasks %}
+                {% if task.status == 'INP' %}
+                    <div class="card mb-4 task-card">
+                        {% if task.photo %}
+                            <img src="{{ task.photo.url }}" class="card-img-top" alt="Task Image">
+                        {% else %}
+                            <img src="{% static 'images/default-image.jpg' %}" class="card-img-top" alt="Default Image">
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-text text-light">{{ task.text }}</p>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ task.user.username }}</h6>
+
+                            {% if task.user == user %}
+                                <a href="{% url 'task_edit' task.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'task_delete' task.id %}" class="btn btn-danger">Delete</a>
+
+                                <!-- Status Change Buttons -->
+                                <div class="mt-2">
+                                    <form action="{% url 'task_change_status' task.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="status" value="DONE">
+                                        <button type="submit" class="btn btn-success btn-sm">Move to Done</button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Done Column -->
+        <div class="col-md-4">
+            <h3 class="text-center text-light">Done</h3>
+            {% for task in tasks %}
+                {% if task.status == 'DONE' %}
+                    <div class="card mb-4 task-card">
+                        {% if task.photo %}
+                            <img src="{{ task.photo.url }}" class="card-img-top" alt="Task Image">
+                        {% else %}
+                            <img src="{% static 'images/default-image.jpg' %}" class="card-img-top" alt="Default Image">
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-text text-light">{{ task.text }}</p>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ task.user.username }}</h6>
+
+                            {% if task.user == user %}
+                                <a href="{% url 'task_edit' task.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'task_delete' task.id %}" class="btn btn-danger">Delete</a>
+
+                                <!-- Optionally, Move Back to In Process -->
+                                <div class="mt-2">
+                                    <form action="{% url 'task_change_status' task.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="status" value="INP">
+                                        <button type="submit" class="btn btn-warning btn-sm">Move to In Process</button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Custom styles for the dark gray theme and hover effect -->
+<style>
+    body {
+        background-color: #343a40; /* Dark gray background */
+        color: #f8f9fa; /* Light text for contrast */
+    }
+
+    h1, h3 {
+        color: #f8f9fa; /* Light text for headings */
+    }
+
+    .task-card {
+        background-color: #495057; /* Slightly lighter dark gray for cards */
+        border-radius: 10px;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .task-card:hover {
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5); /* White glow effect on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+    }
+
+    .btn-primary, .btn-warning, .btn-danger, .btn-success {
+        margin-right: 5px;
+    }
+</style>
+
+{% endblock %}

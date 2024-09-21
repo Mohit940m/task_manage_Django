@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Task
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Set dark gray background for the whole content */
+    body {
+        background-color: #2e2e2e;
+    }
+
+    /* Change background color of the form */
+    .form {
+        background-color: #3a3a3a;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    /* Hover effect on the submit button */
+    .btn-warning:hover {
+        background-color: #ffcc00;
+        border-color: #ffcc00;
+    }
+
+    /* Style the link back to the task list */
+    a {
+        color: #ffcc00;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #fff700;
+    }
+
+    h1, h2, label {
+        color: white; /* Set header and label text to white */
+    }
+
+    input, select, textarea {
+        background-color: #4a4a4a;
+        color: white; /* Set input text color to white */
+        border-color: #616161;
+    }
+
+    input::placeholder {
+        color: #c7c7c7; /* Placeholder text color */
+    }
+
+    /* Additional button margin */
+    .btn {
+        margin-top: 15px;
+    }
+</style>
+
+<h1 class="text-center mt-4">
+    Task Manager
+</h1>
+
+<h2>
+    {% if form.instance.pk %}
+        Edit Task
+    {% else %}
+        Create Task
+    {% endif %}
+</h2>
+
+<!-- Task Form -->
+<form method="post" enctype="multipart/form-data" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-warning" type="submit">Submit</button>
+</form>
+
+<!-- Link to navigate back to task list -->
+<a href="{% url 'task_list' %}" class="mt-3 d-block">Back to task list</a>
+
+{% endblock %}
