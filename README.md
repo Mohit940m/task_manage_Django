@@ -36,3 +36,10 @@ This is a simple Task Management web application built using Django with a Boots
    ```bash
    git clone https://github.com/Mohit940m/task-manager_Django.git
    cd task-manager
+2. Create and activate a virtual environment:
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+
