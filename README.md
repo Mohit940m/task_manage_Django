@@ -42,4 +42,43 @@ This is a simple Task Management web application built using Django with a Boots
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
 
+3. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+4. Run migrations to set up the database:
+
+   ```bash
+   python manage.py migrate
+
+5. Create a superuser to access the admin panel (optional):
+
+   ```bash
+   python manage.py createsuperuser
+
+6. Run the development server:
+
+   ```bash
+   python manage.py runserver
+
+7. Open your browser and visit: http://127.0.0.1:8000/
+
+Folder Structure
+
+```php
+project_root/
+│
+├── task_manager/            # Main Django project directory
+│   ├── settings.py          # Django settings
+│   ├── urls.py              # URL routing
+│   └── ...
+├── tasks/                   # Main app folder
+│   ├── templates/           # HTML templates
+│   ├── static/              # Static files (CSS, JS, images)
+│   ├── views.py             # Task-related views
+│   ├── models.py            # Task model definitions
+│   ├── forms.py             # Task form for creating/editing tasks
+│   └── ...
+├── manage.py                # Django project manager
+└── README.md                # This file
 
