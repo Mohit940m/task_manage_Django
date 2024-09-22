@@ -31,7 +31,7 @@ This is a simple Task Management web application built using Django with a Boots
 
 ### Setup Instructions
 
-1. Clone the repository:
+1. Clone the repository and put it in task-manager folder:
 
    ```bash
    git clone https://github.com/Mohit940m/task-manager_Django.git
